@@ -68,6 +68,25 @@ class HuggingFaceProvider(BaseModel):
                     .eval()
                 )
                 self.processor = AutoProcessor.from_pretrained(self.model_name)
+            elif "llava" in self.model_name:
+
+                from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
+                from llava.conversation import conv_templates
+                from llava.model.builder import load_pretrained_model
+                from llava.utils import disable_torch_init
+                from llava.mm_utils import tokenizer_image_token, process_images, get_model_name_from_path
+
+                disable_torch_init()
+                model_n=get_model_name_from_path(self.model_name)
+                self.tokenizer,self.model,self.image_processor,self.context_len=load_pretrained_model(self.model_name,None,model_n)
+                self.default_image_token=DEFAULT_IMAGE_TOKEN
+                self.image_token_index=IMAGE_TOKEN_INDEX
+                self.default_im_start_token=DEFAULT_IM_START_TOKEN
+                self.default_im_end_token=DEFAULT_IM_END_TOKEN
+                self.conv_templates=conv_templates
+                self.tokenizer_image_token=tokenizer_image_token
+                self.process_images=process_images
+
             else:
                 self.tokenizer = AutoTokenizer.from_pretrained(
                     tokenizer_name, trust_remote_code=True
@@ -208,6 +227,44 @@ class HuggingFaceProvider(BaseModel):
                 tokenizer=self.tokenizer,
                 **kwargs,
             )
+
+        elif "llava" in self.model_name:
+
+            assert (
+                len(model_message) == 2
+                and "text" in model_message[1]
+                and "image" in model_message[0]
+            ), "Expected only 1 image and 1 text for LLaVA."
+
+            query = model_message[1]["text"]
+            image = model_message[0]['image']
+            if isinstance(model_message[0]["image"], str):
+                image = Image.open(model_message[0]["image"]).convert("RGB")
+            else:  # is numpy array
+                image = Image.fromarray(model_message[0]["image"]).convert("RGB")
+
+            if self.model.config.mm_use_im_start_end:
+                query = self.default_im_start_token + self.default_image_token + self.default_im_end_token + '\n' + query
+            else:
+                query = self.default_image_token + '\n' + query
+
+            conv = self.conv_templates['llava_v1'].copy()
+            conv.append_message(conv.roles[0],query)
+            conv.append_message(conv.roles[1],None)
+            prompt = conv.get_prompt()
+            input_ids = self.tokenizer_image_token(prompt,self.tokenizer,self.image_token_index,return_tensors='pt').unsqueeze(0).cuda()
+            image_tensors = self.process_images([image],self.image_processor,self.model.config)[0]
+
+            with torch.inference_mode():
+                output_ids = self.model.generate(
+                    input_ids,
+                    images=image_tensors.unsqueeze(0).half().cuda(),
+                    image_sizes=[image.size],
+                    do_sample=True,
+                    max_new_tokens=1024,
+                    use_cache=True)
+
+            response = self.tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
 
         else:
             raise ValueError(f"Model {self.model_name} is not supported.")
