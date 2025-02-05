@@ -4,7 +4,7 @@ AgentStudio
 
 <p align="center">
 <a href='https://arxiv.org/abs/2403.17918'><img src='https://img.shields.io/badge/arXiv-2403.17918-b31b1b.svg'></a>
-<a href='https://computer-agents.github.io/agent-studio'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+<a href='https://ltzheng.github.io/agent-studio'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 <a href="https://www.python.org/downloads/release/python-3117/"><img alt="Python 3.11" src="https://img.shields.io/badge/python-3.11-blue.svg"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <!-- <a href="https://mypy-lang.org/"><img src="https://www.mypy-lang.org/static/mypy_badge.svg" alt="Checked with mypy"></a> -->
@@ -48,11 +48,11 @@ All confidential API keys should be stored in `agent_studio/config/api_key.json`
 
 ![](docs/assets/agent_space.jpg)
 
-AgentStudio provides the most generic observation and action spaces, which significantly expands the task space, allowing for developing and evaluating agents in real-world settings. We introduce a benchmark suite consisting of 205 tasks. These tasks span API usages such as terminal and Gmail and GUI software like VS Code. Please find more in [eval_online_benchmarks/README.md](eval_online_benchmarks/README.md). The task-related files are available at our <a href='https://computer-agents.github.io/agent-studio'>project page</a>.
+AgentStudio provides the most generic observation and action spaces, which significantly expands the task space, allowing for developing and evaluating agents in real-world settings. We introduce a benchmark suite consisting of 205 tasks. These tasks span API usages such as terminal and Gmail and GUI software like VS Code. Please find more in [eval_online_benchmarks/README.md](eval_online_benchmarks/README.md). The task-related files are available at our <a href='https://ltzheng.github.io/agent-studio'>project page</a>.
 
 ## AgentStudio Datasets Decompose Agent Abilities
 
-To gain deeper insights into agent capabilities beyond the overall performance measured by online benchmark tasks, we develop three datasets using AgentStudio: GroundUI, IDMBench, and CriticBench. These datasets target general UI grounding, learning from videos, and success detection. More details are provided in [eval_agent_desiderata/README.md](eval_agent_desiderata/README.md). All data are available at our <a href='https://computer-agents.github.io/agent-studio'>project page</a>.
+To gain deeper insights into agent capabilities beyond the overall performance measured by online benchmark tasks, we develop three datasets using AgentStudio: GroundUI, IDMBench, and CriticBench. These datasets target general UI grounding, learning from videos, and success detection. More details are provided in [eval_agent_desiderata/README.md](eval_agent_desiderata/README.md). All data are available at our <a href='https://ltzheng.github.io/agent-studio'>project page</a>.
 
 ## AgentStudio Tools
 

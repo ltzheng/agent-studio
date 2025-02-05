@@ -9,23 +9,13 @@ from agent_studio.utils.json_utils import add_jsonl
 
 
 def process_screenspot(screenspot_data_dir="raw_data/screenspot"):
-    mobile_data_path = f"{screenspot_data_dir}/screenspot_mobile.json"
-    with open(mobile_data_path, "r") as file:
-        mobile_data = json.load(file)
-
-    desktop_data_path = f"{screenspot_data_dir}/screenspot_desktop.json"
-    with open(desktop_data_path, "r") as file:
-        desktop_data = json.load(file)
-
-    web_data_path = f"{screenspot_data_dir}/screenspot_web.json"
-    with open(web_data_path, "r") as file:
-        web_data = json.load(file)
-
     processed_data = []
-    for data, platform in zip(
-        [mobile_data, desktop_data, web_data], ["mobile", "desktop", "web"]
-    ):
-        for d in data:
+    for platform in ["mobile", "desktop", "web"]:
+        raw_data_path = f"{screenspot_data_dir}/screenspot_{platform}.json"
+        with open(raw_data_path, "r") as file:
+            raw_data = json.load(file)
+
+        for d in raw_data:
             img_filename = d["img_filename"]
             img_path = os.path.join(screenspot_data_dir, img_filename)
             with Image.open(img_path) as img:
@@ -51,30 +41,14 @@ def process_screenspot(screenspot_data_dir="raw_data/screenspot"):
 
 
 def process_mind2web(mind2web_data_dir="raw_data/mind2web"):
-    test_task_data_path = f"{mind2web_data_dir}/mind2web_data_test_task.json"
-    with open(test_task_data_path, "r") as file:
-        test_task_data = json.load(file)
-
-    test_website_data_path = f"{mind2web_data_dir}/mind2web_data_test_website.json"
-    with open(test_website_data_path, "r") as file:
-        test_website_data = json.load(file)
-
-    test_domain_data_path = f"{mind2web_data_dir}/mind2web_data_test_domain.json"
-    with open(test_domain_data_path, "r") as file:
-        test_domain_data = json.load(file)
-
-    print(
-        f"Length before processing: {len(test_task_data) + len(test_website_data) + len(test_domain_data)}"  # noqa: E501
-    )
-
     mind2web_img_dir = os.path.join(mind2web_data_dir, "mind2web_images")
-
     processed_data = []
-    for data, split in zip(
-        [test_task_data, test_website_data, test_domain_data],
-        ["test_task", "test_website", "test_domain"],
-    ):
-        for episode in data:
+    for split in ["test_task", "test_website", "test_domain"]:
+        raw_data_path = f"{mind2web_data_dir}/mind2web_data_{split}.json"
+        with open(raw_data_path, "r") as file:
+            raw_data = json.load(file)
+
+        for episode in raw_data:
             single_step_instructions = episode["action_reprs"]
             annotation_id = episode["annotation_id"]
             for step, instruction in zip(episode["actions"], single_step_instructions):
@@ -82,7 +56,7 @@ def process_mind2web(mind2web_data_dir="raw_data/mind2web"):
                     continue
 
                 img_filename = f"{annotation_id}-{step['action_uid']}.jpg"
-                img_path = os.path.join(mind2web_img_dir, img_filename)
+                img_path = os.path.join(mind2web_data_dir, img_filename)
                 with Image.open(img_path) as img:
                     img_width, img_height = img.size
 

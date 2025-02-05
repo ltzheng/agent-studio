@@ -50,9 +50,9 @@ cd ..
 
 ### MoTIF
 
-Download motif_complete.tar.gz from [here](https://drive.google.com/file/d/1_yT0QMUyogA-dS0ozBH8Q9Tn5pH9AdvE/view?usp=share_link)
+Download motif_complete.tar.gz from [here](https://drive.google.com/file/d/1_yT0QMUyogA-dS0ozBH8Q9Tn5pH9AdvE/view?usp=share_link).
 
-Download the cleaned json files from [here](https://drive.google.com/file/d/1HD0nuFqAyapxmJiWj8Xhl3LeUDPVRIgm/view)
+Download the cleaned json files from [here](https://drive.google.com/file/d/1HD0nuFqAyapxmJiWj8Xhl3LeUDPVRIgm/view).
 
 
 ### OmniACT
