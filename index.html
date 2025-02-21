@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html class="gpt-theme-light" style="--bigger-text-multiplier: 1.0; --chatgpt-widget-top: 85px; --gpt-ruler-color: #0000004c; --gpt-gmail-compose-btn-display: flex; --gpt-twitter-compose-btn-display: flex; --gpt-outlook-compose-btn-display: inline-block; --gpt-linkedin-compose-btn-display: flex;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>AgentStudio</title>
+    <meta name="description" content="AgentStudio: A Toolkit for Building General Virtual Agents">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:image" content="/logo.png">
+    <link rel="shortcut icon" href="./main_page_resources/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./main_page_resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./main_page_resources/normalize.css">
+    <link rel="stylesheet" href="./main_page_resources/fonts.css">
+    <link rel="stylesheet" href="./main_page_resources/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H9XFCMDPNS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-H9XFCMDPNS");
+    </script>
+  <style title="4a77c6fb-1431-4fb0-ba0e-f8fd626bd07b"></style></head>
+  <body class="gpt-right-sidebar" data-new-gr-c-s-check-loaded="14.1181.0" data-gr-ext-installed="">
+    <div id="ext-sidebar">
+    <div class="close-chat lightMode-nav-close" style="--close2:url(chrome-extension://kdgdohgdbempjoicceeaaglaioadgfhe/../res/icons/ui/close2.png);--close:url(chrome-extension://kdgdohgdbempjoicceeaaglaioadgfhe/../res/icons/ui/close.png);"></div>
+    </div>
+  
+    <div style="padding-bottom: 50px">
+      <section style="background-color: var(--dark_accent_color)">
+        <div class="content-wrapper title-wrapper" style="flex-direction: column">
+          <div style="
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding-bottom: 15px;
+            ">
+            <h1 style="font-size: 60px; padding-top: 0.4em">AgentStudio</h1>
+            <!-- <img src="./main_page_resources/agent-studio-logo-text-light.png" style="height: 100px; padding-top: 0em; padding-left: 0.5em"> -->
+          </div>
+          <h2>A Toolkit for Building General Virtual Agents</h2>
+          <h3 style="font-size: 20px; padding-top: 1.2em">ICLR 2025</h3>
+          <p style="text-align: center;margin-top:1em;">
+            Longtao Zheng</a><sup>1</sup>*, Zhiyuan Huang</a><sup>3</sup>*, Zhenghai Xue</a><sup>1</sup>, Xinrun Wang</a><sup>1</sup>, Bo An</a><sup>1,2</sup>, Shuicheng Yan</a><sup>2,4</sup>
+          </p>
+          <p style="text-align: center;margin-top:1em;">
+            <sup>1</sup>Nanyang Technological University &nbsp; <sup>2</sup>Skywork AI &nbsp; <sup>3</sup>ETH Zurich &nbsp; <sup>4</sup>National University of Singapore &nbsp; (*Equal contribution)
+          </p>
+          <div class="content-wrapper" style="margin-top: 2em">
+            <a href="https://arxiv.org/abs/2403.17918">
+              <button class="outline">
+                <i class="fa-solid fa-file"></i> Paper&nbsp;
+              </button>
+            </a>
+            <!-- <a href="https://github.com/ltzheng/agent-studio">
+              <button class="outline">
+                <i class="fab fa-github"></i> Code&nbsp;
+              </button>
+            </a> -->
+            <a href="https://github.com/ltzheng/agent-studio">
+              <button class="outline">
+                <i class="fab fa-github"></i> Code&nbsp;
+              </button>
+            </a>
+            <a href="https://huggingface.co/agent-studio">
+              <button class="outline">
+                🤗 Data&nbsp;
+              </button>
+            </a>
+            <!-- <a href="https://huggingface.co/spaces/Skywork/agent-studio-leaderboard">
+              <button class="outline">
+                <i class="fa fa-upload"></i> Submit&nbsp;
+              </button>
+            </a> -->
+          </div>
+        </div>
+      </section>
+      <section class="main-container">
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">TL;DR: A trinity of environments, tools, and benchmarks for general virtual agents</h2>
+            <img src="./main_page_resources/overview.png" style="width:60%;margin:auto;display:block;">
+            <p class="text-content">
+              AgentStudio targets the desiderata for robust, general, and open-ended virtual agents by providing: (1) <b>a lightweight, interactive environment</b> with highly <b>generic observation and action spaces</b>, e.g., video observations and GUI/API actions, (2) <b>tools for creating online benchmark tasks, annotating GUI elements, and labeling actions in videos</b>, (3) <b>online benchmark tasks</b> that evaluate both GUI interactions and function calling with <b>auto-evaluation</b> and language feedback, and (4) <b>three benchmark datasets</b>: GroundUI, IDMBench, and CriticBench, for fundamental agent abilities, including GUI grounding, learning from videos, and success detection.
+              <br><br>
+              For more details on AgentStudio environments, tools, and benchmarks, please refer to our <a href="https://arxiv.org/abs/2403.17918">paper</a> and <a href="https://github.com/ltzheng/agent-studio">code</a>.
+            </p>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">Resources</h2>
+            <p class="text-content" style="margin-top:1em;">
+              All the files for online benchmark tasks and the images for the three datasets are available at Google Drive. We also provide the three datasets on Hugging Face. The jsonl files of GroundUI-1K and Trajectory-Lite can also be found in our GitHub repository. Please feel free to raise a GitHub issue if you have any questions or comments, or want to submit new benchmark results.
+            </p>
+            <div class="content-wrapper" style="width: 100%">
+              <div class="content-box column">
+                <a style="width: 120%" href="https://drive.google.com/drive/folders/1XKDXwdWODCB2e80gflAgZiiBICqbgdeB?usp=sharing">
+                  <div class="download"><i class="fa fa-paperclip"></i> Google Drive</div>
+                </a>
+              </div>
+              <div class="content-box column">
+                <a style="width: 120%" href="https://huggingface.co/datasets/agent-studio/GroundUI-1K">
+                  <div class="download">🤗 GroundUI-1K</div>
+                </a>
+              </div>
+              <div class="content-box column">
+                <a style="width: 120%" href="https://huggingface.co/datasets/agent-studio/GroundUI-18K">
+                  <div class="download">🤗 GroundUI-18K</div>
+                </a>
+              </div>
+              <div class="content-box column">
+                <a style="width: 120%" href="https://huggingface.co/datasets/agent-studio/IDM-Single">
+                  <div class="download">🤗 IDM-Single</div>
+                </a>
+              </div>
+              <div class="content-box column">
+                <a style="width: 120%" href="https://huggingface.co/datasets/agent-studio/IDM-Multiple">
+                  <div class="download">🤗 IDM-Multiple</div>
+                </a>
+              </div>
+              <div class="content-box column">
+                <a style="width: 120%" href="https://huggingface.co/datasets/agent-studio/SuccessDetection">
+                  <div class="download">🤗 CriticBench</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main-container">
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">AgentStudio Online Benchmark Leaderboard</h2>
+            <p class="text-content">
+              The online benchmark suites consists of 205 tasks. These tasks span API usages such as terminal and Gmail and GUI software like VS Code in the AgentStudio environment. Solving these tasks requires various fundamental agent abilities, including general grounding through complex action space.
+            </p>
+              <!-- <img src="./main_page_resources/ui_grounding_example.jpg" style="width:70%;margin:auto;display:block;"> -->
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Single API</div></th>
+                    <th><div class="sticky-header-content">Single GUI</div></th>
+                    <th><div class="sticky-header-content">Compositional</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number"><strong>82.0</strong></p></td>
+                    <td><p class="number">20.0</p></td>
+                    <td><p class="number"><strong>25.0</strong></p></td>
+                    <td><p class="number"><strong>36.6</strong></p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-08-06</p>
+                    </td>
+                    <td><p class="number">72.0</p></td>
+                    <td><p class="number"><strong>24.2</strong></p></td>
+                    <td><p class="number">23.3</p></td>
+                    <td><p class="number">35.6</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">36.0</p></td>
+                    <td><p class="number">13.6</p></td>
+                    <td><p class="number">5.0</p></td>
+                    <td><p class="number">16.6</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">28.0</p></td>
+                    <td><p class="number">9.5</p></td>
+                    <td><p class="number">6.7</p></td>
+                    <td><p class="number">13.2</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">Single API (Details)</h3>
+              <p class="text-content">
+                Single-API tasks consist of tasks that can be accomplished through direct API calling, with the <strong>text only</strong> observation space.
+              </p>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">OS</div></th>
+                    <th><div class="sticky-header-content">Google<br>Docs</div></th>
+                    <th><div class="sticky-header-content">Google<br>Calendar</div></th>
+                    <th><div class="sticky-header-content">Gmail</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number">94.7</p></td>
+                    <td><p class="number"><strong>42.9</strong></p></td>
+                    <td><p class="number"><strong>90.9</strong></p></td>
+                    <td><p class="number"><strong>76.9</strong></p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-08-06</p>
+                    </td>
+                    <td><p class="number"><strong>100.0</strong></p></td>
+                    <td><p class="number">28.6</p></td>
+                    <td><p class="number">81.8</p></td>
+                    <td><p class="number">46.2</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">68.4</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">18.2</p></td>
+                    <td><p class="number">23.1</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">52.6</p></td>
+                    <td><p class="number">14.3</p></td>
+                    <td><p class="number">9.1</p></td>
+                    <td><p class="number">15.4</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">Single GUI (Details)</h3>
+              <p class="text-content">
+                Single-GUI tasks involve common daily applications where agents are provided with <strong>screenshots</strong> as well as <strong>text</strong> observations. These tasks can be accomplished through <strong>GUI</strong> or <strong>API</strong> calling.
+              </p>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">GIMP</div></th>
+                    <th><div class="sticky-header-content">OS</div></th>
+                    <th><div class="sticky-header-content">VSCode</div></th>
+                    <th><div class="sticky-header-content">Libreoffice<br>Impress</div></th>
+                    <th><div class="sticky-header-content">Libreoffice<br>Calc</div></th>
+                    <th><div class="sticky-header-content">Libreoffice<br>Writer</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-08-06</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number"><strong>94.7</strong></p></td>
+                    <td><p class="number"><strong>15.0</strong></p></td>
+                    <td><p class="number"><strong>13.3</strong></p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number"><strong>94.7</strong></p></td>
+                    <td><p class="number">5.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">63.2</p></td>
+                    <td><p class="number">5.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">47.4</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-10-02</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <h3 class="text-title">Data Sample of Task Configuration</h3>
+              <p class="text-content">
+                Task configuration with simplified evaluation/reset/cleanup procedures.
+              </p>
+              <!-- <img src="./main_page_resources/ui_grounding_example.jpg" style="width:70%;margin:auto;display:block;"> -->
+              <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+                <table class="table scrollable">
+                  <thead>
+                    <tr>
+                      <th><div class="sticky-header-content">Key</div></th>
+                      <th><div class="sticky-header-content">Value</div></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><p class="model-type">Task ID</p></td>
+                      <td><p class="number">08aced46-45a2-48d7-993b-ed3fb5b32302</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Instruction</p></td>
+                      <td><p class="number">Give the slide 2 a right aligned title, "Note".</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Visual</p></td>
+                      <td><p class="number">True</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Max Steps</p></td>
+                      <td><p class="number">30</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Max Time</p></td>
+                      <td><p class="number">60.0</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Evaluation Procedure</p></td>
+                      <td><p class="number">Compare between "ref.pptx" and "target.pptx"</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Reset Procedure</p></td>
+                      <td><p class="number">1. Create folder structure, 2. Copy file, 3. Open PPTX file</p></td>
+                    </tr>
+                    <tr>
+                      <td><p class="model-type">Cleanup Procedure</p></td>
+                      <td><p class="number">1. Delete folder structure, 2. Kill LibreOffice process</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">GroundUI Leaderboard</h2>
+            <p class="text-content">
+              UI grounding with accurate coordinates is one of the main challenges for human-like computer agents, since not all interactable elements are not readily available. It has also been validated that current models can already generate correct high-level planning in text space, but struggle to ground them into accurate actions. However, there are few existing benchmark provide evaluation results on UI grounding capabilities across different applications and paltforms. In AgentStudio, we systematically re-organize existing datasets, plus self-collected data, into 18K diverse and realistic data with recaptioned clear instructions to benchmark UI grounding.
+            </p>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Web</div></th>
+                    <th><div class="sticky-header-content">Desktop</div></th>
+                    <th><div class="sticky-header-content">Mobile</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">SeeClick</p>
+                    </td>
+                    <td><p class="number">64.3</p></td>
+                    <td><p class="number">44.3</p></td>
+                    <td><p class="number">73.7</p></td>
+                    <td><p class="number">61.1</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+<tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">31.2</p></td>
+                    <td><p class="number">24.3</p></td>
+                    <td><p class="number">51.3</p></td>
+                    <td><p class="number">35.2</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">CogAgent</p>
+                    </td>
+                    <td><p class="number">25.3</p></td>
+                    <td><p class="number">15.7</p></td>
+                    <td><p class="number">35.7</p></td>
+                    <td><p class="number">25.5</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+<tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number">13.0</p></td>
+                    <td><p class="number">14.0</p></td>
+                    <td><p class="number">26.3</p></td>
+                    <td><p class="number">17.3</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-05-13</p>
+                    </td>
+                    <td><p class="number">7.5</p></td>
+                    <td><p class="number">8.3</p></td>
+                    <td><p class="number">26.3</p></td>
+                    <td><p class="number">13.4</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4-turbo-2024-04-09</p>
+                    </td>
+                    <td><p class="number">5.3</p></td>
+                    <td><p class="number">11.0</p></td>
+                    <td><p class="number">23.0</p></td>
+                    <td><p class="number">12.3</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">0.5</p></td>
+                    <td><p class="number">4.3</p></td>
+                    <td><p class="number">26.3</p></td>
+                    <td><p class="number">9.4</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">CogVLM2-Llama3-chat-19B</p>
+                    </td>
+                    <td><p class="number">2.5</p></td>
+                    <td><p class="number">2.7</p></td>
+                    <td><p class="number">5.3</p></td>
+                    <td><p class="number">3.4</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">Gemini-1.0 Pro</p>
+                    </td>
+                    <td><p class="number">0.5</p></td>
+                    <td><p class="number">0.3</p></td>
+                    <td><p class="number">5.0</p></td>
+                    <td><p class="number">1.8</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">MiniCPM-Llama3-V 2.5</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.3</p></td>
+                    <td><p class="number">2.7</p></td>
+                    <td><p class="number">0.9</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">Qwen-VL-Chat</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+<tr>
+                    <td>
+                      <p class="model-type">PaliGemma-3B-896</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">PaliGemma-3B-mix-448</p>
+                    </td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <h3 class="text-title">Data Sample</h3>
+              <p class="text-content">
+                We collected screenshots from test set of existing datasets across web, desktop, and mobile devices, and additional screenshots collected with AgentStudio toolkits. We augment the instructions into detailed and clear ones with the help of GPT-4o. These data add up to 18K UI grounding dataset. For efficient benchmarking, we conduct experiments on a subset, <strong>GroundUI-1K</strong>, which contains 400, 300, and 300 samples for web, desktop, and mobile devices, respectively.
+              </p>
+              <img src="./main_page_resources/ui_grounding_example.jpg" style="width:70%;margin:auto;display:block;">
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">IDMBench Leaderboard</h2>
+            <p class="text-content">
+              Unlocking the ability to learn from videos is a key capability for next-generation computer agents to achieve generalization and lifelong learning. Therefore, we present the first dataset designed to measure the ability to learn how to act from videos. Specifically, we evaluate current multimodal models as inverse dynamics models, predicting actions from unlabeled videos in two separate settings. In the first scenario, we provide the model with two neighboring screenshots, one before and one after an action, and ask it to predict the action that occurred in between. In the second, which is a more general scenario, we provide the model with states for multiple actions (which can be viewed as video frames) and ask it to predict all the actions within the frames.
+            </p>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">IDM-Single (Accuracy %)</h3>
+              <br>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Mind2Web</div></th>
+                    <th><div class="sticky-header-content">AITW</div></th>
+                    <th><div class="sticky-header-content">VWA</div></th>
+                    <th><div class="sticky-header-content">AgentStudio</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p class="model-type">claude-3-5-sonnet-20240620</p></td>
+                    <td><p class="number">73.0</p></td>
+                    <td><p class="number">56.0</p></td>
+                    <td><p class="number">50.0</p></td>
+                    <td><p class="number">72.0</p></td>
+                    <td><p class="number">61.4</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gpt-4o-2024-05-13</p></td>
+                    <td><p class="number">70.0</p></td>
+                    <td><p class="number">56.0</p></td>
+                    <td><p class="number">45.0</p></td>
+                    <td><p class="number">78.0</p></td>
+                    <td><p class="number">60.0</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                                        <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-pro-001</p></td>
+                    <td><p class="number">62.0</p></td>
+                    <td><p class="number">51.0</p></td>
+                    <td><p class="number">46.0</p></td>
+                    <td><p class="number">48.0</p></td>
+                    <td><p class="number">52.3</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-flash-001</p></td>
+                    <td><p class="number">65.0</p></td>
+                    <td><p class="number">34.0</p></td>
+                    <td><p class="number">31.0</p></td>
+                    <td><p class="number">60.0</p></td>
+                    <td><p class="number">45.7</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">Qwen-VL-Chat</p></td>
+                    <td><p class="number">37.0</p></td>
+                    <td><p class="number">20.0</p></td>
+                    <td><p class="number">5.0</p></td>
+                    <td><p class="number">20.0</p></td>
+                    <td><p class="number">20.6</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br/>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">IDM-Multiple (Accuracy %)</h3>
+              <br>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Mind2Web</div></th>
+                    <th><div class="sticky-header-content">AITW</div></th>
+                    <th><div class="sticky-header-content">VWA</div></th>
+                    <th><div class="sticky-header-content">AgentStudio</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p class="model-type">claude-3-5-sonnet-20240620</p></td>
+                    <td><p class="number">18.0</p></td>
+                    <td><p class="number">8.0</p></td>
+                    <td><p class="number">7.0</p></td>
+                    <td><p class="number">22.2</p></td>
+                    <td><p class="number">12.5</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gpt-4o-2024-05-13</p></td>
+                    <td><p class="number">13.0</p></td>
+                    <td><p class="number">8.0</p></td>
+                    <td><p class="number">2.0</p></td>
+                    <td><p class="number">20.0</p></td>
+                    <td><p class="number">9.3</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-pro-001</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">1.0</p></td>
+                    <td><p class="number">2.2</p></td>
+                    <td><p class="number">0.6</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">Qwen-VL-Chat</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-flash-001</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><p class="number">0.0</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br/>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">IDM-Multiple (Edit Distance)</h3>
+              <br>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Mind2Web</div></th>
+                    <th><div class="sticky-header-content">AITW</div></th>
+                    <th><div class="sticky-header-content">VWA</div></th>
+                    <th><div class="sticky-header-content">AgentStudio</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p class="model-type">claude-3-5-sonnet-20240620</p></td>
+                    <td><p class="number">2.0</p></td>
+                    <td><p class="number">2.1</p></td>
+                    <td><p class="number">2.9</p></td>
+                    <td><p class="number">1.6</p></td>
+                    <td><p class="number">2.3</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gpt-4o-2024-05-13</p></td>
+                    <td><p class="number">2.1</p></td>
+                    <td><p class="number">2.2</p></td>
+                    <td><p class="number">3.5</p></td>
+                    <td><p class="number">2.0</p></td>
+                    <td><p class="number">2.5</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-pro-001</p></td>
+                    <td><p class="number">6.0</p></td>
+                    <td><p class="number">4.4</p></td>
+                    <td><p class="number">7.0</p></td>
+                    <td><p class="number">3.8</p></td>
+                    <td><p class="number">5.5</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                                    <tr>
+                    <td><p class="model-type">Qwen-VL-Chat</p></td>
+                    <td><p class="number">5.1</p></td>
+                    <td><p class="number">15.4</p></td>
+                    <td><p class="number">5.8</p></td>
+                    <td><p class="number">6.3</p></td>
+                    <td><p class="number">8.4</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td><p class="model-type">gemini-1.5-flash-001</p></td>
+                    <td><p class="number">294.5</p></td>
+                    <td><p class="number">7.2</p></td>
+                    <td><p class="number">7.2</p></td>
+                    <td><p class="number">7.8</p></td>
+                    <td><p class="number">90.6</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <h3 class="text-title">Data Sample of IDM-Single</h3>
+            <br>
+            <img src="./main_page_resources/idm_single_example_web.jpg" style="width:70%;margin:auto;display:block;">
+            <br>
+            <h3 class="text-title">Data Sample of IDM-Multiple</h3>
+            <br>
+            <img src="./main_page_resources/idm_multiple_example_mobile.jpg" style="width:70%;margin:auto;display:block;">
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">CriticBench Leaderboard</h2>
+            <p class="text-content">
+              The ability to self-evaluate and learn from environment interactions is one of the core abilities of agents. However, there are currently few benchmarks that focus on and measure the ability of computer agents to judge whether a trajectory is successful.
+            </p>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">With Observation-Action Pairs (Accuracy %)</h3>
+              <br>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Web</div></th>
+                    <th><div class="sticky-header-content">Desktop</div></th>
+                    <th><div class="sticky-header-content">Mobile</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">75.3</p></td>
+                    <td><p class="number">88.9</p></td>
+                    <td><p class="number">70.0</p></td>
+                    <td><p class="number">76.7</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">72.3</p></td>
+                    <td><p class="number">83.9</p></td>
+                    <td><p class="number">72.7</p></td>
+                    <td><p class="number">74.8</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number">72.2</p></td>
+                    <td><p class="number">100.0</p></td>
+                    <td><p class="number">61.9</p></td>
+                    <td><p class="number">75.9</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-05-13</p>
+                    </td>
+                    <td><p class="number">69.1</p></td>
+                    <td><p class="number">93.1</p></td>
+                    <td><p class="number">68.2</p></td>
+                    <td><p class="number">73.6</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">Qwen-VL-Chat</p>
+                    </td>
+                    <td><p class="number">51.7</p></td>
+                    <td><p class="number">48.7</p></td>
+                    <td><p class="number">49.0</p></td>
+                    <td><p class="number">50.2</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br/>
+            <div class="tabcontent tabcontentall" style="display: block;width:80%;margin:auto;">
+              <h3 class="text-subtitle">With Observations Only (Accuracy %)</h3>
+              <br>
+              <table class="table scrollable">
+                <thead>
+                  <tr>
+                    <th><div class="sticky-header-content">Model</div></th>
+                    <th><div class="sticky-header-content">Web</div></th>
+                    <th><div class="sticky-header-content">Desktop</div></th>
+                    <th><div class="sticky-header-content">Mobile</div></th>
+                    <th><div class="sticky-header-content">Total</div></th>
+                    <th><div class="sticky-header-content">Date</div></th>
+                    <!-- <th><div class="sticky-header-content">Logs</div></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-pro-001</p>
+                    </td>
+                    <td><p class="number">68.8</p></td>
+                    <td><p class="number">89.7</p></td>
+                    <td><p class="number">65.5</p></td>
+                    <td><p class="number">72.5</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gemini-1.5-flash-001</p>
+                    </td>
+                    <td><p class="number">70.2</p></td>
+                    <td><p class="number">80.8</p></td>
+                    <td><p class="number">70.0</p></td>
+                    <td><p class="number">72.1</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">claude-3-5-sonnet-20240620</p>
+                    </td>
+                    <td><p class="number">67.4</p></td>
+                    <td><p class="number">96.0</p></td>
+                    <td><p class="number">63.3</p></td>
+                    <td><p class="number">71.4</p></td>
+                    <td><span class="label-date">2024-08-17</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">gpt-4o-2024-05-13</p>
+                    </td>
+                    <td><p class="number">65.2</p></td>
+                    <td><p class="number">92.3</p></td>
+                    <td><p class="number">66.7</p></td>
+                    <td><p class="number">70.6</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="model-type">Qwen-VL-Chat</p>
+                    </td>
+                    <td><p class="number">53.1</p></td>
+                    <td><p class="number">59.2</p></td>
+                    <td><p class="number">51.0</p></td>
+                    <td><p class="number">53.4</p></td>
+                    <td><span class="label-date">2024-06-06</span></p></td>
+                    <!-- <td><p style="text-align: center;">
+                      <a href="">🔗</a>
+                    </p></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <h3 class="text-title">Data Sample</h3>
+            <p class="text-content">
+              We collect trajectories from both existing environments such as AITW, Mind2Web, VisualWebArena, etc. and AgentStudio's real-world environments, resulting in diverse trajectories of both human and agents on web, desktop, and mobile environments. Since most human trajectories are successful, we balance the dataset by labeling partial trajectories as failure cases.
+            </p>
+            <img src="./main_page_resources/success_detection_example_web.jpg" style="width:70%;margin:auto;display:block;">
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">AgentStudio Environment</h2>
+            <img src="./main_page_resources/agent_space.jpg" style="width:80%;margin:auto;display:block;">
+            <p class="text-content">
+              AgentStudio provides an <b>interactive, realistic, and lightweight environment</b> with generic observation and action spaces, enabling agents to <b>interact with arbitrary software</b>. The observation space incorporates <b>multiple modalities, ranging from screen recordings (videos) and screenshots (images) to code execution results (text)</b>. Agents can act through human-computer interfaces (e.g., keyboard-mouse operations) to control third-party applications, and perform function calling to interact with APIs. These features expand the task space to massively open-domain and real-world tasks typically performed by humans. The interactive nature of online environments allows agents to learn through trial and error, which is enhanced by the language feedback on failure reasons provided by our environment.
+              <br>
+              <br>
+              Comparisons with existing work:
+            </p>
+            <img src="./main_page_resources/comparison.png" style="width:80%;margin:auto;display:block;">
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">AgentStudio Tools</h2>
+            <br>
+            <h3 class="text-title">Online Benchmark GUI</h3>
+            <p class="text-content">
+              The figure below shows the process of running our online benchmark using AgentStudio toolkits. You can select the tasks, start executing the tasks with the agents, and evaluate the agents performance afterwards. You can even create your own agents, tasks and evaluators easily with our toolkits.
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <img src="./main_page_resources/onlinebenchmark_gui.png" width="80%">
+            </div>
+            <br>
+            <h3 class="text-title">GroundUI Annotator</h3>
+            <p class="text-content">
+              Here is an example of recording single-step GUI grounding data in MacOS.
+            </p>
+            <div style="display: flex; justify-content: space-between;">
+              <img src="./main_page_resources/annotate_gui_1.jpg" width="48%">
+              <img src="./main_page_resources/annotate_gui_2.jpg" width="48%">
+            </div>
+            <br>
+            <h3 class="text-title">Trajectory Recorder/Editor</h3>
+            <p class="text-content">
+              Here is an example video of recordinging and editing video trajectories with action labels.
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <iframe src="https://drive.google.com/file/d/1W3bFXKO5cJHle6JfwphRrlbrsV-Cyn2E/preview" width="640" height="400" allow="autoplay"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-box">
+            <h2 class="text-title">Citation</h2>
+              If you find the data or code useful, please consider cite us: <br><br><pre id="citation"><code>@article{zheng2024agentstudio,
+  title={AgentStudio: A Toolkit for Building General Virtual Agents},
+  author={Longtao Zheng and Zhiyuan Huang and Zhenghai Xue and Xinrun Wang and Bo An and Shuicheng Yan},
+  journal={arXiv preprint arXiv:2403.17918},
+  year={2024}
+}</code></pre>
+          <br>
+          Website template from <a href="https://www.swebench.com">SWE-bench</a>
+          </div>
+        </section></div>
+      
+    
+    <footer class="footer-container">
+      <div class="content-wrapper">
+        <div class="footer-text">
+        </div>
+      </div>
+    </footer>
+  
+    <div class="appended-element chat-weight" style="--gpt-widget-icon:url(chrome-extension://kdgdohgdbempjoicceeaaglaioadgfhe/../res/icons/ui/left.png);--gpt-white-widget-icon:url(chrome-extension://kdgdohgdbempjoicceeaaglaioadgfhe/../res/icons/ui/white_left.png);">
+      <div id="chat-gpt-widget" class="chat-gpt-widget" style="--chatgpt-widget-display: flex;">
+        <div class="main-icon widget-icon"></div>
+      </div>
+   
+        
+    <div>
+  </div></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
