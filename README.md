@@ -76,10 +76,10 @@ We would like to thank the following projects for their inspiration and contribu
 If you find AgentStudio useful, please cite our paper:
 
 ```bibtex
-@article{zheng2024agentstudio,
-  title={AgentStudio: A Toolkit for Building General Virtual Agents},
-  author={Longtao Zheng and Zhiyuan Huang and Zhenghai Xue and Xinrun Wang and Bo An and Shuicheng Yan},
-  journal={arXiv preprint arXiv:2403.17918},
+@inproceedings{zheng2024agentstudio,
+  title={Agent{S}tudio: A Toolkit for Building General Virtual Agents},
+  author={Zheng, Longtao and Huang, Zhiyuan and Xue, Zhenghai and Wang, Xinrun and An, Bo and Yan, Shuicheng},
+  booktitle={The Thirteenth International Conference on Learning Representations},
   year={2024}
 }
 ```
