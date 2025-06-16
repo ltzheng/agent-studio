@@ -96,7 +96,7 @@ def evaluator_router(
     evaluators: dict[str, Evaluator] = {}
     logger.info(f"Registered evaluators: {registered_evaluators.keys()}")
 
-    procedures = task_config.eval_procedure
+    procedures = task_config.eval_procedure.copy()
     if task_config.reset_procedure is not None:
         procedures += task_config.reset_procedure
     if task_config.cleanup_procedure is not None:
