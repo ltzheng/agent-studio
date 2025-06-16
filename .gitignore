@@ -181,4 +181,4 @@ trajectories
 *.tar.gz
 gpt4v_som
 logs/*
-eval_online_benchmarks/files/*
+eval_online_benchmarks/data/*

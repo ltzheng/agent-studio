@@ -80,8 +80,8 @@ def register_evaluators(
                                         raise AttributeError
                                 except Exception as e:
                                     logger.error(
-                                        f"Error importing {module_name} {node.name}. "
-                                        f"Due to {e}. Skipping..."
+                                        f"Skip importing {module_name} {node.name} "
+                                        f"due to {e}."
                                     )
                                 break
     return registered_classes

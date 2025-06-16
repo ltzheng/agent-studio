@@ -45,9 +45,9 @@ def register_agents(
                                 else:
                                     raise AttributeError
                             except Exception as e:
-                                logger.error(
-                                    f"Error importing {module_name} {node.name}. "
-                                    f"Due to {e}. Skipping..."
+                                logger.warning(
+                                    f"Skip importing {module_name} {node.name} "
+                                    f"due to {e}."
                                 )
                             break
     return registered_classes

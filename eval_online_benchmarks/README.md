@@ -4,7 +4,12 @@ We provide 205 single-API, single-GUI, and compositional tasks for online benchm
 
 **Before You Start:** You should note that agents may do some **non-reversible actions**, such as deleting files, creating files, running commands, and deleting Google Calendar events. Please make sure you have backups of your data. Some tasks may require you to provide API keys. Before running the tasks, **please make sure the account doesn't have important data.**
 
-## Google Account Setup
+## Task Preparation
+
+1. Download the task files (`benchmark_task_files.tar.gz`) from [this link](https://drive.google.com/drive/folders/1XKDXwdWODCB2e80gflAgZiiBICqbgdeB) and extract `files/*` to `eval_online_benchmarks/data/`.
+2. The tasks are located in `eval_online_benchmarks/tasks` and categorized into `single_api`, `single_gui`, and `compositional`.
+
+## Google Account Setup (Optional)
 
 Google Workspace tasks require Google API usage. Kindly enable Google APIs, configure OAuth, download the credentials following instructions [here](https://developers.google.com/docs/api/quickstart/python#set_up_your_environment). In Google Cloud Console, go to `APIs & Services` -> `Credentials` -> `Create Credentials` -> `OAuth client ID` to create a new credential and download the `credentials.json` file to local disk. Then specify the credential path in `agent_studio/config/api_key.json`. When you run the benchmark for the first time, you should authorize all Google services before experiments by running `python scripts/setup_api_keys.py`. You will be prompted to visit several URLs to authorize Google Docs, Drives, etc. The corresponding token json files like `docs_token.json` will be saved in `agent_studio/config`.
 
@@ -31,16 +36,12 @@ docker build -f dockerfiles/Dockerfile.ubuntu22.04.amd64 . -t agent-studio:lates
 Run Docker:
 
 ```bash
-docker run -d -e RESOLUTION=1024x768 -p 6080:80 -p 5900:5900 -p 8000:8000 -e VNC_PASSWORD=123456 -v /dev/shm:/dev/shm -v ${PWD}/scripts/agent_server.py:/home/ubuntu/agent_studio/scripts/agent_server.py:ro -v ${PWD}/agent_studio/envs:/home/ubuntu/agent_studio/agent_studio/envs:ro -v ${PWD}/agent_studio/utils:/home/ubuntu/agent_studio/agent_studio/utils:ro -v ${PWD}/agent_studio/agent:/home/ubuntu/agent_studio/agent_studio/agent:ro -v ${PWD}/agent_studio/config:/home/ubuntu/agent_studio/agent_studio/config -v ${PWD}/eval_online_benchmarks/files:/home/ubuntu/agent_studio/data:ro agent-studio:latest
+docker run -d -e RESOLUTION=1024x768 -p 6080:80 -p 5900:5900 -p 8000:8000 -e VNC_PASSWORD=123456 -v /dev/shm:/dev/shm -v ${PWD}/scripts/agent_server.py:/home/ubuntu/agent_studio/scripts/agent_server.py:ro -v ${PWD}/agent_studio/envs:/home/ubuntu/agent_studio/agent_studio/envs:ro -v ${PWD}/agent_studio/utils:/home/ubuntu/agent_studio/agent_studio/utils:ro -v ${PWD}/agent_studio/agent:/home/ubuntu/agent_studio/agent_studio/agent:ro -v ${PWD}/agent_studio/config:/home/ubuntu/agent_studio/agent_studio/config -v ${PWD}/eval_online_benchmarks/data:/home/ubuntu/agent_studio/data:ro agent-studio:latest
 ```
 
 > You can also replace `-d` to `-it` to use interactive mode. If successful, you should see logs with a bunch of success followed by `INFO  Listening on http://localhost:6079` in the output.
 
 You can browse `http://127.0.0.1:6080` to interact with the remote machine through a browser. The port `6080`, `5900`, and `8000` are exposed for noVNC, VNC server, and AgentStudio HTTP, respectively.
-
-## Task Description
-
-The tasks are located in `eval_online_benchmarks/tasks`, and the associated files are located in `eval_online_benchmarks/files`. The tasks are categorized into `single_api`, `single_gui`, and `compositional`.
 
 ## Start Evaluation
 
@@ -57,17 +58,9 @@ as-online-benchmark --task_configs_path eval_online_benchmarks/tasks --model gem
 as-online-benchmark --task_configs_path eval_online_benchmarks/tasks/single_api/os --model gemini-1.5-flash-001 --remote
 # Or google_docs
 as-online-benchmark --task_configs_path eval_online_benchmarks/tasks/single_api/google_docs --model gemini-1.5-flash-001 --remote
-
-# Run with time limit, which is specified in the task config
-as-online-benchmark --task_configs_path eval_online_benchmarks/tasks/single_gui/os --model gpt-4o-2024-08-06 --remote --use_time_limit
-
-# Use --ignore_finished to recover from last run
-as-online-benchmark --task_configs_path eval_online_benchmarks/tasks/basic/docs --model gemini-1.0-pro-001 --remote --use_time_limit --ignore_finished
-as-online-benchmark --task_configs_path eval_online_benchmarks/tasks/basic/filesystem --model gemini-1.0-pro-001 --remote --use_time_limit --ignore_finished
-
 ```
 
-> You can set `need_human_confirmation=True` in `agent_studio/config/config.py` to do safety check before each action execution. You can add `--help` to explore more args.
+> You can add `--use_time_limit` to run with time limit (specified in the task config) and `--ignore_finished` to recover from last run. You can also set `need_human_confirmation=True` in `agent_studio/config/config.py` to do safety check before each action execution. You can add `--help` to explore more args.
 
 By default, you can check `logs` to see the full logs and result jsonl files.
 
